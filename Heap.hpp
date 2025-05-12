@@ -63,8 +63,8 @@ class Heap{
 
             }
         }
-        void peak_max(){
-            cout<<"("<<tablica.get(0)->data<<","<<tablica.get(0)->priority<<")"<<endl;
+        NodeS<T>* peak_max(){
+            return tablica.get(0);
         }
         NodeS<T>* extract_max()
         {

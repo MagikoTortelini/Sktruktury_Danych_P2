@@ -60,7 +60,7 @@ class Queue_List {
         T find_max() const{
             if (head == nullptr) {
                 cout << "kolejka jest pusta" << endl;
-                return;
+                return -1;
             }
             T max = head -> value;
             return max;
