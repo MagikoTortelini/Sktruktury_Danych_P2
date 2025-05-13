@@ -49,7 +49,9 @@ class Tablica_dynamiczna{
         }
         
         void del_end(){
+            if(actual>0){
             delete tab[actual-1];
+            }
             if (actual > 0) {
                 actual--;
             }    

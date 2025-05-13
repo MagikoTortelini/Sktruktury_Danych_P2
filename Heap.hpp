@@ -63,15 +63,16 @@ class Heap{
 
             }
         }
-        NodeS<T>* peak_max(){
-            return tablica.get(0);
+        T peak_max(){
+            return tablica.get(0)->data;
         }
-        NodeS<T>* extract_max()
+        T extract_max()
         {
             if(tablica.get_size()==0){
-                return nullptr;
+                cout<<"kolejka jest pusta";
+                return 0;
             }
-            NodeS<T>* Max_Priority = tablica.get(0); // przechowanie elemenetu o najwyzszym priorytecie
+            T Max_Priority = tablica.get(0)->data; // przechowanie elemenetu o najwyzszym priorytecie
             swap(tablica.get(0),tablica.get(tablica.get_size()-1)); // zamiana miejscami pierwszego i ostatniego elementu
             tablica.del_end(); // usuniecie elementu o najwyzszym priorytecie
             heapdown(0,tablica.get_size()); // naprawa kopca w dol
@@ -81,9 +82,11 @@ class Heap{
         {
             int index=-1; 
             int s=tablica.get_size();
+            cout<<s;
 
-            for(int i=0;i<s-1;i++) // szukanie w tablicy szukanego elementu
+            for(int i=0;i<s;i++) // szukanie w tablicy szukanego elementu
             {
+                cout<<tablica.get(i)->data<<endl;
                 if(tablica.get(i)->data==e){
                     index=i;
                     break;
