@@ -1,9 +1,10 @@
-#ifndef queue_list_hpp
+##ifndef queue_list_hpp
 #define queue_list_hpp
 
 #include <iostream>
 using namespace std;
 
+// struktura pojedynczego elementu
 template <typename T>
 struct Element {
     T value;
@@ -15,7 +16,7 @@ struct Element {
 
 template <typename T>
 class Queue_List {
-    Element<T>* head;
+    Element<T>* head; // wskaznik na poczatek listy
     public:
         Queue_List() {head=nullptr; size = 0;}
 
@@ -29,15 +30,19 @@ class Queue_List {
         }
 
         void insert(T e, T p) {
+            // nowy element
             Element<T>* node = new Element<T>(e,p);
+            // jesli jest pusta lub ma wyzszy priorytet niz head
             if(head == nullptr || head->priority < p) {
                 node -> next = head;
                 head = node;
             }else {
+                // szukamy miejsca wstawienia
                 Element<T>* current = head;
                 while (current->next != nullptr && current->next->priority >= p) {
                     current = current->next;
                 }
+                // wstawiamy nowy element
                 node->next = current->next;
                 current->next = node;
             }
@@ -47,11 +52,14 @@ class Queue_List {
         T extract_max(){
             if (head == nullptr) {
                 cout << "kolejka jest pusta" << endl;
-                return -1;
+                return nullptr;
             }
+            // pobranie wartosci pierwszego elementu
             T max = head -> value;
             Element<T>* temp = head -> next;
+            // usuwaniu pierwszy element
             delete head;
+            // ustawienie nowego head
             head = temp;
             size--;
             return max;
@@ -60,8 +68,9 @@ class Queue_List {
         T find_max() const{
             if (head == nullptr) {
                 cout << "kolejka jest pusta" << endl;
-                return -1;
+                return nullptr;
             }
+            // pobranie wartosci pierwszego elementu
             T max = head -> value;
             return max;
         }
@@ -71,6 +80,7 @@ class Queue_List {
             Element<T>* prev = nullptr;
             bool found = false;
             
+            // szukanie elementu o podanej wartosci
             while(temp!=nullptr) {
                 if(temp->value == e){
                     // usuniecie istniejacego elementu
