@@ -82,11 +82,9 @@ class Heap{
         {
             int index=-1; 
             int s=tablica.get_size();
-            cout<<s;
 
             for(int i=0;i<s;i++) // szukanie w tablicy szukanego elementu
             {
-                cout<<tablica.get(i)->data<<endl;
                 if(tablica.get(i)->data==e){
                     index=i;
                     break;
