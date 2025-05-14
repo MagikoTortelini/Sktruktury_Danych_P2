@@ -64,7 +64,7 @@ class Heap{
             }
         }
         T peak_max(){
-            if(size!=0){
+            if(tablica.get_size()!=0){
             return tablica.get(0)->data;
             }
             else return 0;
