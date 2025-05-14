@@ -52,7 +52,7 @@ class Queue_List {
         T extract_max(){
             if (head == nullptr) {
                 cout << "kolejka jest pusta" << endl;
-                return nullptr;
+                return -1;
             }
             // pobranie wartosci pierwszego elementu
             T max = head -> value;
@@ -68,7 +68,7 @@ class Queue_List {
         T find_max() const{
             if (head == nullptr) {
                 cout << "kolejka jest pusta" << endl;
-                return nullptr;
+                return -1;
             }
             // pobranie wartosci pierwszego elementu
             T max = head -> value;
